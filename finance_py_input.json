@@ -1,0 +1,9 @@
+{
+  "issue_date": [2020, 1, 15],
+  "maturity_date": [2030, 1, 15],
+  "settlement_date": [2025, 2, 25],
+  "coupon_rate": 0.035,
+  "frequency": "semi_annual",
+  "day_count": "act_act_isda",
+  "ytm": 0.04
+}

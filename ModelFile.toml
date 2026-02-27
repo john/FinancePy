@@ -1,0 +1,18 @@
+name = "climate_batch"
+run = "docker run --rm -v \"$PWD/run:/run\" ${IMAGE} ${ARGS}"
+image = "financepy-runner:local"
+args = ["--in", "{input:finance_py_input}", "--out", "{output:finance_py_output}"]
+
+[[inputs]]
+name = "finance_py_input"
+
+[inputs.schema]
+type = "object"
+required = ["issue_date", "maturity_date", "settlement_date", "coupon_rate", "frequency", "day_count", "ytm"]
+
+[[outputs]]
+name = "finance_py_output"
+
+[outputs.schema]
+type = "object"
+required = ["clean_price", "dirty_price", "accrued_interest", "macauley_duration", "modified_duration", "convexity", "ytm"]
