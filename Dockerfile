@@ -11,7 +11,7 @@ ENV MPLBACKEND=Agg
 # Install FinancePy from local source (matches `pip install -e .` dev workflow)
 COPY pyproject.toml setup.py README.md LICENSE MANIFEST.in ./
 COPY financepy ./financepy
-COPY runner.py input.json ./
+COPY runner.py finance_py_input.json ./
 
 RUN pip install --no-cache-dir -U pip \
 	&& pip install --no-cache-dir -e .
@@ -25,4 +25,6 @@ from financepy.utils import *; \
 print('Numba cache warmed')"
 
 ENTRYPOINT ["python", "runner.py"]
-CMD ["input.json"]
+
+# irl the input and output paths will be provided by the ModelFile configuration, but for local testing we can default to the expected filenames
+CMD ["finance_py_input.json"]
