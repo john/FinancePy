@@ -5,7 +5,7 @@ args = ["--in", "{input:finance_py_input}", "--out", "{output:finance_py}"]
 
 [[inputs]]
 # TODO: this should eventually support URLs as well as local files
-name = "finance_py_input"
+name = "finance_py"
 
 [inputs.schema]
 type = "object"
